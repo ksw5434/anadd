@@ -1,65 +1,119 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useRef } from "react";
+import Navigation from "./components/Navigation";
+import HeroSection from "./components/HeroSection";
+import HeroHeaderSection from "./components/HeroHeaderSection";
+import ProjectOverviewSection from "./components/ProjectOverviewSection";
+import CTASection from "./components/CTASection";
+import PremiumLifeSection from "./components/PremiumLifeSection";
+import ContactCTASection from "./components/ContactCTASection";
+import PremiumUnitPlanSection from "./components/PremiumUnitPlanSection";
+import LocationEnvironmentSection from "./components/LocationEnvironmentSection";
+import GallerySection from "./components/GallerySection";
+import InterestRegistrationSection from "./components/InterestRegistrationSection";
+import Footer from "./components/Footer";
+import "locomotive-scroll/dist/locomotive-scroll.css";
 
 export default function Home() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let scroll: any = null;
+
+    const initLocomotiveScroll = async () => {
+      if (scrollRef.current) {
+        const LocomotiveScroll = (await import("locomotive-scroll")).default;
+        scroll = new LocomotiveScroll({
+          el: scrollRef.current,
+          smooth: true,
+          smoothMobile: false,
+          resetNativeScroll: true,
+        });
+      }
+    };
+
+    initLocomotiveScroll();
+
+    return () => {
+      if (scroll) scroll.destroy();
+    };
+  }, []);
+
+  // 구조화된 데이터 (JSON-LD) - SEO 최적화
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ResidentialComplex",
+    name: "어나드범어",
+    alternateName: "Anadeu Beomeo",
+    description:
+      "대구 수성구 범어동에 위치한 프리미엄 아파트. 범어역 도보 3분, 명문 학군, 하이엔드 커뮤니티 시설을 갖춘 프리미엄 라이프스타일의 시작.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "범어동",
+      addressRegion: "수성구",
+      addressCountry: "KR",
+      streetAddress: "대구광역시 수성구 범어동 일원",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "35.8594", // 실제 좌표로 변경 필요
+      longitude: "128.6314", // 실제 좌표로 변경 필요
+    },
+    telephone: "1600-XXXX",
+    url: "https://anadeubeomeo.com", // 실제 도메인으로 변경 필요
+    sameAs: [
+      // 소셜 미디어 링크가 있다면 추가
+    ],
+    amenityFeature: [
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "지하철역",
+        value: "범어역 도보 3분",
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "명문 학군",
+        value: "범어동 학원가 인접",
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "커뮤니티 시설",
+        value: "피트니스, 골프연습장, 프라이빗 라운지",
+      },
+    ],
+    numberOfBedrooms: "2-4",
+    numberOfBathroomsTotal: "2-3",
+    floorSize: {
+      "@type": "QuantitativeValue",
+      value: "59-114",
+      unitCode: "MTK",
+    },
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      {/* 구조화된 데이터 (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div ref={scrollRef} data-scroll-container>
+        <Navigation />
+        <main className="flex-grow flex flex-col">
+          <HeroSection />
+          <HeroHeaderSection />
+          <ProjectOverviewSection />
+          <CTASection />
+          <PremiumLifeSection />
+          <ContactCTASection />
+          <PremiumUnitPlanSection />
+          <LocationEnvironmentSection />
+          <GallerySection />
+          <InterestRegistrationSection />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

@@ -1,0 +1,22 @@
+import { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://anadeubeomeo.com"; // 실제 도메인으로 변경 필요
+
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    // 추가 페이지가 있다면 여기에 추가
+    // {
+    //   url: `${baseUrl}/about`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "monthly",
+    //   priority: 0.8,
+    // },
+  ];
+}
+
