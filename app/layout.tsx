@@ -128,9 +128,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased relative bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden`}
       >
         {children}
-
         <ScrollToTopButton />
-
         <ChannelTalk />
       </body>
     </html>

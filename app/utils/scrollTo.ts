@@ -20,21 +20,21 @@ const DEFAULT_OPTIONS: ScrollToOptions = {
 };
 
 /**
- * Scrolls to a target element or position, with automatic Locomotive Scroll detection
+ * 스크롤을 대상 요소나 위치로 이동하는 함수
  *
- * @param target - Element ID (string), HTMLElement, or numeric position (0 for top)
- * @param options - Scroll configuration options
+ * @param target - 요소 ID (string), HTMLElement, 또는 숫자 위치 (0은 맨 위)
+ * @param options - 스크롤 설정 옵션
  *
  * @example
- * // Scroll to top
+ * // 맨 위로 스크롤
  * scrollToTarget(0);
  *
  * @example
- * // Scroll to section by ID
+ * // ID로 섹션으로 스크롤
  * scrollToTarget("about-section");
  *
  * @example
- * // Scroll to element with custom offset
+ * // 커스텀 오프셋과 함께 요소로 스크롤
  * scrollToTarget(element, { offset: -100 });
  */
 export function scrollToTarget(
@@ -43,57 +43,30 @@ export function scrollToTarget(
 ): void {
   const config = { ...DEFAULT_OPTIONS, ...options };
 
-  // Get the scroll container (Locomotive Scroll uses data-scroll-container)
-  const scrollContainer = document.querySelector(
-    "[data-scroll-container]"
-  ) as HTMLElement;
-
-  // Get the Locomotive Scroll instance if available
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const locomotiveScroll = (window as any).locomotiveScroll;
-
-  // Handle numeric target (scroll to position)
+  // 숫자 타겟 처리 (위치로 스크롤)
   if (typeof target === "number") {
-    if (locomotiveScroll) {
-      locomotiveScroll.scrollTo(target, {
-        duration: config.duration,
-        easing: config.easing,
-      });
-    } else if (scrollContainer) {
-      scrollContainer.scrollTo({
-        top: target,
-        behavior: "smooth",
-      });
-    } else {
-      window.scrollTo({
-        top: target,
-        behavior: "smooth",
-      });
-    }
+    window.scrollTo({
+      top: target,
+      behavior: "smooth",
+    });
     return;
   }
 
-  // Handle element target (string ID or HTMLElement)
+  // 요소 타겟 처리 (ID 문자열 또는 HTMLElement)
   const targetElement =
     typeof target === "string" ? document.getElementById(target) : target;
 
   if (!targetElement) {
-    console.warn(`scrollToTarget: Target element not found:`, target);
+    console.warn(`scrollToTarget: 대상 요소를 찾을 수 없습니다:`, target);
     return;
   }
 
-  // Use Locomotive Scroll if available
-  if (locomotiveScroll) {
-    locomotiveScroll.scrollTo(targetElement, {
-      offset: config.offset,
-      duration: config.duration,
-      easing: config.easing,
-    });
-  } else {
-    // Fallback to native smooth scroll
-    targetElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
+  // 네이티브 부드러운 스크롤 사용
+  const elementPosition = targetElement.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset + (config.offset || 0);
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
 }

@@ -1,13 +1,32 @@
 "use client";
 
-import { useState } from "react";
-import { useLocomotiveScroll } from "@/app/hooks/useLocomotiveScroll";
+import { useState, useEffect } from "react";
 import { scrollToTarget } from "@/app/utils/scrollTo";
 import InterestRegistrationButton from "./InterestRegistrationButton";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isScrolled } = useLocomotiveScroll({ threshold: 80 });
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // 스크롤 위치 감지
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      setIsScrolled(scrollY > 80);
+    };
+
+    // 초기 스크롤 위치 확인
+    handleScroll();
+
+    // 스크롤 이벤트 리스너 등록
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   // 섹션으로 스크롤 이동하는 함수
   const scrollToSection = (sectionId: string) => {
