@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import ChannelTalk from "./components/channel-talk/channel-talk";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -97,6 +98,13 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code", // Google Search Console 인증 코드로 변경 필요
   },
+  // 추가 SEO 메타 태그
+  other: {
+    "geo.region": "KR-27",
+    "geo.placename": "대구광역시 수성구 범어동",
+    "geo.position": "35.8594;128.6314",
+    ICBM: "35.8594, 128.6314",
+  },
 };
 
 export default function RootLayout({
@@ -107,23 +115,23 @@ export default function RootLayout({
   return (
     <html lang="ko" className="dark">
       <head>
-        {/* Material Symbols 아이콘 */}
+        {/* Vimeo 도메인 사전 연결 - 비디오 로딩 속도 최적화 */}
+        <link rel="preconnect" href="https://player.vimeo.com" />
+        <link rel="dns-prefetch" href="https://player.vimeo.com" />
+        {/* Material Symbols 폰트 로드 */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
-        {/* 추가 SEO 메타 태그 */}
-        <meta name="geo.region" content="KR-27" />
-        <meta name="geo.placename" content="대구광역시 수성구 범어동" />
-        <meta name="geo.position" content="35.8594;128.6314" />
-        <meta name="ICBM" content="35.8594, 128.6314" />
-        <link rel="canonical" href="https://anadeubeomeo.com" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased relative bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden`}
       >
         {children}
+
         <ScrollToTopButton />
+
+        <ChannelTalk />
       </body>
     </html>
   );

@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+
 export default function PremiumLifeSection() {
   const features = [
     {
@@ -113,9 +115,7 @@ export default function PremiumLifeSection() {
                   {/* Read More 링크 (호버 시 나타남) */}
                   <div className="pt-4 flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
                     <span>Read More</span>
-                    <span className="material-symbols-outlined text-lg">
-                      arrow_forward
-                    </span>
+                    <ArrowRight className="w-5 h-5" />
                   </div>
                 </div>
               </div>

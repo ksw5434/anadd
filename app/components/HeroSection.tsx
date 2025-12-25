@@ -13,7 +13,7 @@ export default function HeroSection() {
       {/* Vimeo 배경 비디오 */}
       <div className="absolute inset-0 z-0">
         <iframe
-          src="https://player.vimeo.com/video/1131986574?background=1&loop=1&autopause=0"
+          src="https://player.vimeo.com/video/1131986574?background=1&loop=1&autopause=0&responsive=1"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           style={{
             width: "100vw",
@@ -25,6 +25,7 @@ export default function HeroSection() {
           allowFullScreen
           frameBorder="0"
           title="Hero Background Video"
+          loading="eager"
         />
       </div>
 

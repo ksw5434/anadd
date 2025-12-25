@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 interface TimelineItem {
   id: number;
@@ -417,9 +418,7 @@ export default function InterestRegistrationSection() {
                     ) : (
                       <>
                         관심고객 등록하기
-                        <span className="material-symbols-outlined ml-2 text-lg">
-                          arrow_forward
-                        </span>
+                        <ArrowRight className="ml-2 w-5 h-5" />
                       </>
                     )}
                   </button>
