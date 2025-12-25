@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 
 interface TimelineItem {
   id: number;
@@ -101,53 +100,38 @@ export default function InterestRegistrationSection() {
     setIsSubmitting(true);
 
     try {
-      // EmailJS 환경 변수에서 설정값 가져오기
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      // 환경 변수 검증
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error(
-          "EmailJS 설정이 완료되지 않았습니다. 환경 변수를 확인해주세요."
-        );
-      }
-
-      // 지역명 변환 (한글 표시용)
-      const locationMap: { [key: string]: string } = {
-        daegu: "대구광역시",
-        gyeongbuk: "경상북도",
-        other: "기타 지역",
-      };
-      const locationName = locationMap[formData.location] || formData.location;
-
-      // EmailJS로 이메일 발송
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          // 템플릿 변수들 (EmailJS 템플릿에서 사용할 변수명과 일치해야 합니다)
-          name: formData.name, // 성함
-          phone: formData.phone, // 연락처
-          location: locationName, // 거주지역
-          privacy_agreed: formData.privacy ? "동의함" : "동의하지 않음", // 개인정보 동의 여부
-          submitted_at: new Date().toLocaleString("ko-KR"), // 제출 시간
+      // API로 폼 데이터 전송
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        publicKey
-      );
-
-      // 성공 메시지
-      alert(
-        "관심고객 등록이 완료되었습니다.\n담당자가 확인 후 신속하게 연락드리겠습니다."
-      );
-
-      // 폼 초기화
-      setFormData({
-        name: "",
-        phone: "",
-        location: "",
-        privacy: false,
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          location: formData.location,
+          privacy_agreed: formData.privacy ? "동의함" : "동의하지 않음",
+        }),
       });
+
+      const data = await response.json();
+
+      if (response.status === 200) {
+        // 성공 메시지
+        alert(
+          "관심고객 등록이 완료되었습니다.\n담당자가 확인 후 신속하게 연락드리겠습니다."
+        );
+
+        // 폼 초기화
+        setFormData({
+          name: "",
+          phone: "",
+          location: "",
+          privacy: false,
+        });
+      } else {
+        throw new Error(data.error || "서버 오류가 발생했습니다.");
+      }
     } catch (error) {
       console.error("이메일 발송 오류:", error);
       alert(
