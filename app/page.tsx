@@ -10,6 +10,7 @@ import VideoSwiperSection from "./components/VideoSwiperSection";
 import PremiumLifeSection from "./components/PremiumLifeSection";
 import ContactCTASection from "./components/ContactCTASection";
 import PremiumUnitPlanSection from "./components/PremiumUnitPlanSection";
+import ComplexPlanSection from "./components/ComplexPlanSection";
 import LocationEnvironmentSection from "./components/LocationEnvironmentSection";
 import GallerySection from "./components/GallerySection";
 import InterestRegistrationSection from "./components/InterestRegistrationSection";
@@ -110,6 +111,7 @@ export default function Home() {
           {/* <VideoSwiperSection /> */}
           <PremiumLifeSection />
           <ContactCTASection />
+          <ComplexPlanSection />
           <PremiumUnitPlanSection />
           <LocationEnvironmentSection />
           <GallerySection />

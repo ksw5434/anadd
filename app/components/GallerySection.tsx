@@ -89,6 +89,30 @@ export default function GallerySection() {
         "https://lh3.googleusercontent.com/aida-public/AB6AXuCuJ4s7hV1LvD36Y9DTQoTHCHpLGzrLRuW179DoOM6nSqxl4NXQ9vUvc-cpCaJ-G0G7h7v0pNV8C0eqIQr0lY55YJL2sm7Bl_fYtPoPqgc7ECNjUZATv2206Caw0ApGAmzQK0-dODCGuF7S7UqP6aIG1ZnmK2aYEdbVRphOctCDGBYRwkZykw0cQ1GRCeo7nTJY6yRZJ66uaqqkaVd6e8RExUC_pEDbEbtdFy7SGls9_M3aNEHTzTXHVOIrbcmsjXmDx-uyk9Yiihb9",
       aspectRatio: "video",
     },
+    {
+      id: 9,
+      category: "커뮤니티",
+      categoryEn: "Community",
+      title: "스카이라운지",
+      image: "https://www.anadd.co.kr/sub/community_01.jpg",
+      aspectRatio: "4/3",
+    },
+    {
+      id: 10,
+      category: "커뮤니티",
+      categoryEn: "Community",
+      title: "버라이어티존",
+      image: "https://www.anadd.co.kr/sub/community_03.jpg",
+      aspectRatio: "square",
+    },
+    {
+      id: 11,
+      category: "커뮤니티",
+      categoryEn: "Community",
+      title: "스카이커뮤니티",
+      image: "https://www.anadd.co.kr/sub/community_04.jpg",
+      aspectRatio: "square",
+    },
   ];
 
   const getAspectRatioClass = (aspectRatio: string) => {
@@ -125,7 +149,8 @@ export default function GallerySection() {
         </h1>
         <div className="h-1 w-20 bg-primary mb-6"></div>
         <p className="text-slate-600 dark:text-text-gold text-lg font-medium max-w-2xl mx-auto">
-          어나드범어의 품격 있는 공간. 당신의 삶을 완성하는 프리미엄 라이프스타일을 미리 만나보세요.
+          어나드범어의 품격 있는 공간. 당신의 삶을 완성하는 프리미엄
+          라이프스타일을 미리 만나보세요.
         </p>
       </div>
 
@@ -198,4 +223,3 @@ export default function GallerySection() {
     </main>
   );
 }
-

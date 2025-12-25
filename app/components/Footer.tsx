@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-background-light dark:bg-background-dark border-t border-neutral-200 dark:border-white/10 py-10 px-6">
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-neutral-500 dark:text-neutral-400 text-sm">
-          © 2024 Anadeu Beomeo. All rights reserved.
+          © 2025 어나드범어. All rights reserved.
         </div>
         <div className="flex gap-6">
           {/* Facebook 아이콘 */}
@@ -37,4 +37,3 @@ export default function Footer() {
     </footer>
   );
 }
-

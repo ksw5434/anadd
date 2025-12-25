@@ -60,7 +60,8 @@ export default function InterestRegistrationSection() {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+      [name]:
+        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     }));
   };
 
@@ -71,7 +72,10 @@ export default function InterestRegistrationSection() {
   };
 
   return (
-    <div id="interest-registration" className="relative min-h-screen flex flex-col justify-center w-full bg-background-light dark:bg-background-dark">
+    <div
+      id="interest-registration"
+      className="relative min-h-screen flex flex-col justify-center w-full bg-background-light dark:bg-background-dark"
+    >
       {/* 장식 배경 패턴 */}
       <div className="absolute inset-0 pointer-events-none opacity-5 dark:opacity-10 z-0 overflow-hidden">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary blur-[120px]"></div>
@@ -95,8 +99,8 @@ export default function InterestRegistrationSection() {
                   <span className="text-primary">지금 바로 등록하세요</span>
                 </h2>
                 <p className="text-slate-600 dark:text-text-gold text-lg leading-relaxed max-w-xl">
-                  VIP 관심고객으로 등록하시면 청약 일정, 분양가, 모델하우스 오픈 정보를 가장
-                  먼저 문자메시지로 받아보실 수 있습니다.
+                  VIP 관심고객으로 등록하시면 청약 일정, 분양가, 모델하우스 오픈
+                  정보를 가장 먼저 문자메시지로 받아보실 수 있습니다.
                 </p>
               </div>
 
@@ -108,7 +112,7 @@ export default function InterestRegistrationSection() {
                       24시간 분양 문의
                     </p>
                     <h1 className="text-3xl lg:text-4xl font-bold text-primary tracking-[-0.02em]">
-                      1600-XXXX
+                      053-792-7777
                     </h1>
                   </div>
                   <a
@@ -123,7 +127,9 @@ export default function InterestRegistrationSection() {
               {/* 타임라인 일정 */}
               <div className="relative pl-2">
                 <h3 className="text-xl font-bold mb-8 flex items-center gap-2 text-slate-900 dark:text-white">
-                  <span className="material-symbols-outlined text-primary">calendar_month</span>
+                  <span className="material-symbols-outlined text-primary">
+                    calendar_month
+                  </span>
                   <span>분양 캘린더 (예정)</span>
                 </h3>
 
@@ -192,7 +198,12 @@ export default function InterestRegistrationSection() {
                   </p>
                 </div>
 
-                <form action="#" className="space-y-6" method="POST" onSubmit={handleSubmit}>
+                <form
+                  action="#"
+                  className="space-y-6"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                >
                   {/* 성함 입력 */}
                   <div className="space-y-2 group/input">
                     <label
@@ -203,7 +214,9 @@ export default function InterestRegistrationSection() {
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 dark:text-border-gold group-focus-within/input:text-primary transition-colors">
-                        <span className="material-symbols-outlined">person</span>
+                        <span className="material-symbols-outlined">
+                          person
+                        </span>
                       </div>
                       <input
                         className="block w-full pl-10 pr-3 py-3 border border-slate-200 dark:border-[#4a4025] rounded-lg leading-5 bg-slate-50 dark:bg-background-dark text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-border-gold focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all shadow-sm"
@@ -228,7 +241,9 @@ export default function InterestRegistrationSection() {
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 dark:text-border-gold group-focus-within/input:text-primary transition-colors">
-                        <span className="material-symbols-outlined">smartphone</span>
+                        <span className="material-symbols-outlined">
+                          smartphone
+                        </span>
                       </div>
                       <input
                         className="block w-full pl-10 pr-3 py-3 border border-slate-200 dark:border-[#4a4025] rounded-lg leading-5 bg-slate-50 dark:bg-background-dark text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-border-gold focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all shadow-sm"
@@ -253,7 +268,9 @@ export default function InterestRegistrationSection() {
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 dark:text-border-gold group-focus-within/input:text-primary transition-colors">
-                        <span className="material-symbols-outlined">location_on</span>
+                        <span className="material-symbols-outlined">
+                          location_on
+                        </span>
                       </div>
                       <select
                         className="block w-full pl-10 pr-10 py-3 border border-slate-200 dark:border-[#4a4025] rounded-lg leading-5 bg-slate-50 dark:bg-background-dark text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all shadow-sm appearance-none"
@@ -271,7 +288,9 @@ export default function InterestRegistrationSection() {
                         <option value="other">기타 지역</option>
                       </select>
                       <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 dark:text-border-gold">
-                        <span className="material-symbols-outlined">expand_more</span>
+                        <span className="material-symbols-outlined">
+                          expand_more
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -295,12 +314,15 @@ export default function InterestRegistrationSection() {
                           className="font-medium text-slate-700 dark:text-text-gold"
                           htmlFor="privacy"
                         >
-                          <span className="text-primary font-bold">[필수]</span> 개인정보 수집 및
-                          이용에 동의합니다.
+                          <span className="text-primary font-bold">[필수]</span>{" "}
+                          개인정보 수집 및 이용에 동의합니다.
                         </label>
                         <p className="text-slate-400 dark:text-border-gold mt-1 text-xs">
                           귀하의 정보는 분양정보 제공 목적으로만 사용됩니다.
-                          <a className="underline hover:text-primary ml-1" href="#">
+                          <a
+                            className="underline hover:text-primary ml-1"
+                            href="#"
+                          >
                             자세히 보기
                           </a>
                         </p>
@@ -314,7 +336,9 @@ export default function InterestRegistrationSection() {
                     type="submit"
                   >
                     관심고객 등록하기
-                    <span className="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
+                    <span className="material-symbols-outlined ml-2 text-lg">
+                      arrow_forward
+                    </span>
                   </button>
                 </form>
               </div>
@@ -325,4 +349,3 @@ export default function InterestRegistrationSection() {
     </div>
   );
 }
-
