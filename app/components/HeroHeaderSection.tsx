@@ -12,7 +12,7 @@ export default function HeroHeaderSection() {
       />
 
       {/* 오버레이 */}
-      <div className="absolute inset-0 bg-background-dark/80 bg-gradient-to-t from-background-dark to-transparent"></div>
+      <div className="absolute w-full h-full inset-0 bg-background-dark/80 bg-gradient-to-t from-background-dark to-transparent" />
 
       {/* 콘텐츠 */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-12">
@@ -34,4 +34,3 @@ export default function HeroHeaderSection() {
     </header>
   );
 }
-

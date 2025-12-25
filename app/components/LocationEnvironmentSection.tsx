@@ -45,7 +45,7 @@ export default function LocationEnvironmentSection() {
   ];
 
   return (
-    <main className="flex-grow flex flex-col items-center w-full pb-20 bg-background-dark">
+    <main id="location-environment" className="flex-grow flex flex-col items-center w-full pb-20 bg-background-dark">
       {/* 헤더 텍스트 섹션 */}
       <section className="w-full max-w-[1280px] px-4 lg:px-10 pt-16 pb-12">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-4">

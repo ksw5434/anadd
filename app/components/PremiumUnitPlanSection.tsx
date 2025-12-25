@@ -165,7 +165,7 @@ export default function PremiumUnitPlanSection() {
   const currentUnit = unitTypes.find((unit) => unit.id === selectedUnit) || unitTypes[2];
 
   return (
-    <div className="layout-container flex h-full grow flex-col bg-background-light dark:bg-background-dark">
+    <div id="premium-unit-plan" className="layout-container flex h-full grow flex-col bg-background-light dark:bg-background-dark">
       {/* 헤더 섹션 */}
       <header className="w-full px-4 md:px-8 py-12 md:py-20 flex flex-col items-center justify-center text-center">
         <div className="max-w-3xl">

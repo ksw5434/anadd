@@ -98,8 +98,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      {/* Navigation을 스크롤 컨테이너 밖으로 이동하여 z-index 문제 해결 */}
+      <Navigation />
       <div ref={scrollRef} data-scroll-container>
-        <Navigation />
         <main className="flex-grow flex flex-col">
           <HeroSection />
           <HeroHeaderSection />

@@ -41,7 +41,7 @@ export default function PremiumLifeSection() {
   ];
 
   return (
-    <div className="relative flex min-h-screen flex-col w-full bg-background-dark">
+    <div id="premium-life" className="relative flex min-h-screen flex-col w-full bg-background-dark">
       {/* 헤더 섹션 */}
       <header className="relative w-full pt-20 pb-12 md:pt-32 md:pb-20 px-6 flex flex-col items-center justify-center text-center z-10">
         <div className="max-w-4xl mx-auto space-y-4 animate-fade-in-up">

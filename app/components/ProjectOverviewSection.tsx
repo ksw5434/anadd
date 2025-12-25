@@ -1,8 +1,13 @@
 "use client";
 
+import Image from "next/image";
+
 export default function ProjectOverviewSection() {
   return (
-    <section className="py-20 px-6 lg:px-10 bg-background-light dark:bg-background-dark">
+    <section
+      id="project-overview"
+      className="py-20 px-6 lg:px-10 bg-background-light dark:bg-background-dark"
+    >
       <div className="max-w-[1120px] mx-auto">
         {/* 섹션 헤딩 */}
         <div className="mb-12 md:mb-16 border-l-4 border-primary pl-6">
@@ -24,17 +29,17 @@ export default function ProjectOverviewSection() {
             <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary/30 rounded-tl-3xl z-0 hidden md:block"></div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary/30 rounded-br-3xl z-0 hidden md:block"></div>
 
-            {/* 메인 이미지 */}
+            {/* 메인 비디오 */}
             <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl shadow-black/50 aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
-              <div
-                className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{
-                  backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMi5ClXbAHJUkKP0rQAN08DtyU7rLPLln94qc-Quy5aG7TZfc7mGtvd0mjAiXHwiEAdCrYbZl6V0j9sThUvToG1UzULRaA0sp3y3d5QXJCN11sBmNFoAErGYWCMjhiHOtxylZQLjYQrJRqc17uCgA9_O3BKwPcjs-7D6qtXadOmKk4lsinKkTW691OF1s0uzOJHogHUabvz_F9kW5NXHByXBwZdpOpniSfjswe2MJnpU8h2v0BexTxrTHfWOTWONIep8_6lPNgit7x")`,
-                }}
+              {/* 프로젝트 이미지 */}
+              <img
+                src="/project-1.webp"
+                alt="어나드범어 프로젝트 개요"
+                className="object-cover"
               />
 
               {/* 플로팅 배지 */}
-              <div className="absolute bottom-6 left-6 right-6 bg-surface-dark/95 backdrop-blur border border-white/10 p-4 rounded-xl shadow-lg flex items-center justify-between">
+              <div className="absolute bottom-6 left-6 right-6 bg-surface-dark/95 backdrop-blur border border-white/10 p-4 rounded-xl shadow-lg flex items-center justify-between z-20">
                 <div>
                   <p className="text-xs text-neutral-400 uppercase tracking-wider">
                     Premium Location
@@ -114,9 +119,25 @@ export default function ProjectOverviewSection() {
                 </div>
                 <div className="flex-1 sm:text-right">
                   <span className="text-neutral-900 dark:text-white font-medium">
-                    아파트 <span className="text-primary font-bold">000</span>
+                    공동주택 <span className="text-primary font-bold">604</span>
                     세대 / 오피스텔{" "}
-                    <span className="text-primary font-bold">000</span>실
+                    <span className="text-primary font-bold">146</span>실
+                  </span>
+                </div>
+              </div>
+              {/* 리스트 아이템 4: 주차대수 */}
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between py-5 border-b border-neutral-200 dark:border-white/10 group">
+                <div className="flex items-center gap-3 w-32 shrink-0 mb-1 sm:mb-0">
+                  <span className="material-symbols-outlined text-primary text-xl">
+                    directions_car
+                  </span>
+                  <span className="text-neutral-500 dark:text-neutral-400 font-medium text-sm">
+                    주차대수
+                  </span>
+                </div>
+                <div className="flex-1 sm:text-right">
+                  <span className="text-neutral-900 dark:text-white font-medium">
+                    세대당 2.17대(공동주택)
                   </span>
                 </div>
               </div>
@@ -133,7 +154,7 @@ export default function ProjectOverviewSection() {
                 </div>
                 <div className="flex-1 sm:text-right">
                   <span className="text-neutral-900 dark:text-white font-medium">
-                    0,000.00㎡
+                    17,598.80㎡
                   </span>
                 </div>
               </div>

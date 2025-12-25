@@ -9,14 +9,30 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex flex-col">
-      {/* 배경 이미지 및 오버레이 */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(34, 29, 16, 0.4) 0%, rgba(34, 29, 16, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBeZvNEhg1sQKLwypvLhuWuRf4OUWO4c5h9Jzp6YmU_d88rJXLSRHZN0wTTqDZgxTK9X9o2sk8WQ-x-zIMTTd9m6QNhpwTI6KhyyFOjDBFJuIJUKT7FORLNuqG4WQlDM0XcUoIpua_KDXZcWquFHjjeFCEVw4D3UrOMvi_wvVZhS0QfN6qf7alfcRBIsAwSMaRszcppHrRxff_O1QpwR1HbsTQfs1N88bhPTpeQp0xnvo9QSHBzqbrrJjLbcKsnXmO9YnSMLIwTvJcI")`,
-        }}
-      />
+    <section className="relative w-full h-screen min-h-[700px] flex flex-col overflow-hidden">
+      {/* Vimeo 배경 비디오 */}
+      <div className="absolute inset-0 z-0">
+        <iframe
+          src="https://player.vimeo.com/video/1131986574?background=1&loop=1&autopause=0"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{
+            width: "100vw",
+            height: "56.25vw",
+            minHeight: "100vh",
+            minWidth: "177.77777778vh",
+          }}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          frameBorder="0"
+          title="Hero Background Video"
+        />
+      </div>
+
+      {/* 그라데이션 오버레이 - 텍스트 가독성을 위해 */}
+      <div className="absolute w-full h-full inset-0 z-[1] bg-gradient-to-b from-background-dark/20 scale-110 via-background-dark/60 to-background-dark/50" />
+
+      {/* 하단 추가 오버레이 - 하단 비디오 완전 차단 */}
+      <div className="absolute bottom-0 left-0 right-0  z-[1] bg-gradient-to-t from-background-dark to-transparent" />
 
       {/* 콘텐츠 컨테이너 */}
       <div className="relative z-10 flex-1 flex flex-col justify-center px-6 lg:px-40 w-full max-w-[1440px] mx-auto pt-20">
@@ -34,7 +50,7 @@ export default function HeroSection() {
               <br />
               <span className="text-primary">그 이상의 가치</span>
             </h1>
-            <h2 className="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-[600px] mt-2">
+            <h2 className="text-white text-lg md:text-xl leading-relaxed max-w-[600px] mt-2">
               대구의 중심에서 누리는 하이엔드 라이프스타일의 시작.
               <br className="hidden md:block" />
               당신만을 위한 특별한 공간이 준비되어 있습니다.

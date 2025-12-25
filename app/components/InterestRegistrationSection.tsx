@@ -71,7 +71,7 @@ export default function InterestRegistrationSection() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center w-full bg-background-light dark:bg-background-dark">
+    <div id="interest-registration" className="relative min-h-screen flex flex-col justify-center w-full bg-background-light dark:bg-background-dark">
       {/* 장식 배경 패턴 */}
       <div className="absolute inset-0 pointer-events-none opacity-5 dark:opacity-10 z-0 overflow-hidden">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary blur-[120px]"></div>
