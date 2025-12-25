@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -122,6 +123,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden`}
       >
         {children}
+        <ScrollToTopButton />
       </body>
     </html>
   );

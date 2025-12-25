@@ -8,6 +8,48 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // 섹션으로 스크롤 이동하는 함수
+  const scrollToSection = (sectionId: string) => {
+    // Locomotive Scroll 인스턴스 찾기
+    const scrollContainer = document.querySelector(
+      "[data-scroll-container]"
+    ) as HTMLElement;
+
+    if (scrollContainer) {
+      // Locomotive Scroll이 있는 경우
+      const targetElement = document.getElementById(sectionId);
+      if (targetElement) {
+        // Locomotive Scroll의 scrollTo 메서드 사용 시도
+        const locomotiveScroll = (window as any).locomotiveScroll;
+        if (locomotiveScroll) {
+          locomotiveScroll.scrollTo(targetElement, {
+            offset: -80, // 네비게이션 높이만큼 오프셋
+            duration: 1000,
+            easing: [0.25, 0.0, 0.35, 1.0],
+          });
+        } else {
+          // Locomotive Scroll이 아직 초기화되지 않은 경우 일반 스크롤 사용
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    } else {
+      // 일반 스크롤 사용
+      const targetElement = document.getElementById(sectionId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+
+    // 모바일 메뉴 닫기
+    setIsMobileMenuOpen(false);
+  };
+
   // 스크롤 감지 로직 (Locomotive Scroll 지원)
   useEffect(() => {
     // 클라이언트 사이드에서만 실행
@@ -133,23 +175,40 @@ export default function Navigation() {
           {/* 데스크톱 메뉴 */}
           <div className="hidden lg:flex flex-1 justify-end items-center gap-10">
             <div className="flex items-center gap-8">
-              <button className="text-white/80 hover:text-primary text-sm font-semibold transition-colors">
+              <button
+                onClick={() => scrollToSection("project-overview")}
+                className="text-white/80 hover:text-primary text-sm font-semibold transition-colors"
+              >
                 사업안내
               </button>
-              <button className="text-white/80 hover:text-primary text-sm font-semibold transition-colors">
-                단지안내
+              <button
+                onClick={() => scrollToSection("premium-life")}
+                className="text-white/80 hover:text-primary text-sm font-semibold transition-colors"
+              >
+                프리미엄
               </button>
-              <button className="text-white/80 hover:text-primary text-sm font-semibold transition-colors">
-                세대안내
+              <button
+                onClick={() => scrollToSection("complex-plan")}
+                className="text-white/80 hover:text-primary text-sm font-semibold transition-colors"
+              >
+                단지배치도
               </button>
-              <button className="text-white/80 hover:text-primary text-sm font-semibold transition-colors">
-                분양안내
+              <button
+                onClick={() => scrollToSection("location-environment")}
+                className="text-white/80 hover:text-primary text-sm font-semibold transition-colors"
+              >
+                로케이션
               </button>
-              <button className="text-white/80 hover:text-primary text-sm font-semibold transition-colors">
-                오시는 길
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="text-white/80 hover:text-primary text-sm font-semibold transition-colors"
+              >
+                갤러리
               </button>
             </div>
-            <InterestRegistrationButton />
+            <InterestRegistrationButton
+              onClick={() => scrollToSection("interest-registration")}
+            />
           </div>
 
           {/* 모바일 메뉴 버튼 */}
@@ -182,7 +241,10 @@ export default function Navigation() {
               <button className="text-white/80 hover:text-primary text-sm font-semibold transition-colors text-left">
                 오시는 길
               </button>
-              <InterestRegistrationButton className="mt-2" />
+              <InterestRegistrationButton
+                className="mt-2"
+                onClick={() => scrollToSection("interest-registration")}
+              />
             </div>
           </div>
         )}

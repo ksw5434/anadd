@@ -57,13 +57,14 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
-/* Locomotive Scroll 스타일 */
+/* Locomotive Scroll 스타일 - 부드러운 스크롤 최적화 */
 html.has-scroll-smooth {
   overflow: hidden;
 }
 
 html.has-scroll-dragging {
   user-select: none;
+  cursor: grabbing !important;
 }
 
 .has-scroll-smooth body {
@@ -73,6 +74,14 @@ html.has-scroll-dragging {
 .has-scroll-init,
 .has-scroll-smooth [data-scroll-container] {
   min-height: 100vh;
+  will-change: transform; /* GPU 가속 활성화로 부드러운 스크롤 */
+}
+
+/* 스크롤 컨테이너 내부 요소 최적화 */
+[data-scroll-container] * {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0); /* GPU 가속 */
 }
 
 [data-scroll-direction="horizontal"] [data-scroll-container] {
@@ -125,10 +134,8 @@ html.has-scroll-dragging {
   cursor: grabbing;
 }
 
-/* 스무스 스크롤 개선 */
-* {
-  scroll-behavior: smooth;
-}
+/* 스무스 스크롤 개선 - locomotive-scroll과 충돌 방지를 위해 제거 */
+/* locomotive-scroll이 스크롤을 제어하므로 CSS의 scroll-behavior는 비활성화 */
 
 /* 스크롤 다운 애니메이션 */
 @keyframes bounce {

@@ -22,6 +22,10 @@ export default function Home() {
 
   useEffect(() => {
     let scroll: any = null;
+    let resizeTimeout: NodeJS.Timeout | null = null;
+    let updateTimeout: NodeJS.Timeout | null = null;
+    const imageLoadHandlers: Array<() => void> = [];
+    let handleResize: (() => void) | null = null;
 
     const initLocomotiveScroll = async () => {
       if (scrollRef.current) {
@@ -29,16 +33,94 @@ export default function Home() {
         scroll = new LocomotiveScroll({
           el: scrollRef.current,
           smooth: true,
-          smoothMobile: false,
+          smoothMobile: true, // 모바일에서도 부드러운 스크롤 활성화
           resetNativeScroll: true,
+          lerp: 0.1, // 선형 보간 값 (낮을수록 부드러움, 0.05~0.15 권장)
+          multiplier: 1, // 스크롤 속도 배율
+          class: "is-revealed", // 스크롤 초기화 클래스
+          scrollbarContainer: false, // 스크롤바 숨김
+          getSpeed: true, // 스크롤 속도 감지
+          getDirection: true, // 스크롤 방향 감지
         });
+
+        // Locomotive Scroll 인스턴스를 window에 저장하여 다른 컴포넌트에서 접근 가능하도록 함
+        (window as any).locomotiveScroll = scroll;
+
+        // 이미지 로드 완료 후 스크롤 업데이트
+        const images = scrollRef.current.querySelectorAll("img");
+        let loadedImages = 0;
+        const totalImages = images.length;
+
+        const handleImageLoad = () => {
+          loadedImages++;
+          if (loadedImages === totalImages) {
+            if (updateTimeout) clearTimeout(updateTimeout);
+            updateTimeout = setTimeout(() => {
+              scroll?.update();
+            }, 100);
+          }
+        };
+
+        if (totalImages === 0) {
+          // 이미지가 없으면 바로 업데이트
+          if (updateTimeout) clearTimeout(updateTimeout);
+          updateTimeout = setTimeout(() => {
+            scroll?.update();
+          }, 100);
+        } else {
+          images.forEach((img) => {
+            if (img.complete) {
+              handleImageLoad();
+            } else {
+              img.addEventListener("load", handleImageLoad);
+              img.addEventListener("error", handleImageLoad);
+              imageLoadHandlers.push(() => {
+                img.removeEventListener("load", handleImageLoad);
+                img.removeEventListener("error", handleImageLoad);
+              });
+            }
+          });
+        }
+
+        // 리사이즈 이벤트에 스크롤 업데이트 연결 (디바운싱 적용)
+        handleResize = () => {
+          if (resizeTimeout) clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            scroll?.update();
+          }, 150);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        // 초기 업데이트 (약간의 지연을 두어 레이아웃이 안정화된 후 실행)
+        if (updateTimeout) clearTimeout(updateTimeout);
+        updateTimeout = setTimeout(() => {
+          scroll?.update();
+        }, 500);
       }
     };
 
     initLocomotiveScroll();
 
+    // cleanup 함수
     return () => {
-      if (scroll) scroll.destroy();
+      // 타이머 정리
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      if (updateTimeout) clearTimeout(updateTimeout);
+
+      // 이미지 이벤트 리스너 제거
+      imageLoadHandlers.forEach((cleanup) => cleanup());
+
+      // 리사이즈 이벤트 리스너 제거
+      if (handleResize) {
+        window.removeEventListener("resize", handleResize);
+      }
+
+      // locomotive-scroll 인스턴스 제거
+      if (scroll) {
+        scroll.destroy();
+        (window as any).locomotiveScroll = null;
+      }
     };
   }, []);
 

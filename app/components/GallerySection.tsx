@@ -138,7 +138,10 @@ export default function GallerySection() {
       : galleryItems.filter((item) => item.category === activeFilter);
 
   return (
-    <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-background-light dark:bg-background-dark">
+    <main
+      id="gallery"
+      className="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-background-light dark:bg-background-dark"
+    >
       {/* 헤더 섹션 */}
       <div className="flex flex-col items-center justify-center text-center mb-12 animate-fade-in-up">
         <h2 className="text-primary tracking-[0.2em] text-sm sm:text-base font-bold uppercase mb-3">
