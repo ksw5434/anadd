@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 interface TimelineItem {
   id: number;
@@ -18,6 +19,7 @@ export default function InterestRegistrationSection() {
     location: "",
     privacy: false,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false); // 제출 중 상태 관리
 
   const timelineItems: TimelineItem[] = [
     {
@@ -65,10 +67,95 @@ export default function InterestRegistrationSection() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 폼 제출 로직
-    console.log("Form submitted:", formData);
+
+    // 유효성 검사
+    if (!formData.name.trim()) {
+      alert("성함을 입력해주세요.");
+      return;
+    }
+
+    if (!formData.phone.trim()) {
+      alert("연락처를 입력해주세요.");
+      return;
+    }
+
+    // 연락처 형식 검증 (010-0000-0000 형식 또는 숫자만)
+    const phoneRegex = /^[0-9-]+$/;
+    if (!phoneRegex.test(formData.phone)) {
+      alert("올바른 연락처 형식을 입력해주세요.");
+      return;
+    }
+
+    if (!formData.location) {
+      alert("거주지역을 선택해주세요.");
+      return;
+    }
+
+    if (!formData.privacy) {
+      alert("개인정보 수집 및 이용에 동의해주세요.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS 환경 변수에서 설정값 가져오기
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      // 환경 변수 검증
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          "EmailJS 설정이 완료되지 않았습니다. 환경 변수를 확인해주세요."
+        );
+      }
+
+      // 지역명 변환 (한글 표시용)
+      const locationMap: { [key: string]: string } = {
+        daegu: "대구광역시",
+        gyeongbuk: "경상북도",
+        other: "기타 지역",
+      };
+      const locationName = locationMap[formData.location] || formData.location;
+
+      // EmailJS로 이메일 발송
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          // 템플릿 변수들 (EmailJS 템플릿에서 사용할 변수명과 일치해야 합니다)
+          name: formData.name, // 성함
+          phone: formData.phone, // 연락처
+          location: locationName, // 거주지역
+          privacy_agreed: formData.privacy ? "동의함" : "동의하지 않음", // 개인정보 동의 여부
+          submitted_at: new Date().toLocaleString("ko-KR"), // 제출 시간
+        },
+        publicKey
+      );
+
+      // 성공 메시지
+      alert(
+        "관심고객 등록이 완료되었습니다.\n담당자가 확인 후 신속하게 연락드리겠습니다."
+      );
+
+      // 폼 초기화
+      setFormData({
+        name: "",
+        phone: "",
+        location: "",
+        privacy: false,
+      });
+    } catch (error) {
+      console.error("이메일 발송 오류:", error);
+      alert(
+        "등록 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.\n문제가 계속되면 전화로 문의해주세요: 053-792-7777"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -332,13 +419,25 @@ export default function InterestRegistrationSection() {
 
                   {/* 제출 버튼 */}
                   <button
-                    className="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-background-dark bg-primary hover:bg-[#d9a60e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform hover:-translate-y-0.5 active:translate-y-0 mt-4"
+                    className="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-background-dark bg-primary hover:bg-[#d9a60e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform hover:-translate-y-0.5 active:translate-y-0 mt-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     type="submit"
+                    disabled={isSubmitting}
                   >
-                    관심고객 등록하기
-                    <span className="material-symbols-outlined ml-2 text-lg">
-                      arrow_forward
-                    </span>
+                    {isSubmitting ? (
+                      <>
+                        <span className="material-symbols-outlined mr-2 text-lg animate-spin">
+                          sync
+                        </span>
+                        전송 중...
+                      </>
+                    ) : (
+                      <>
+                        관심고객 등록하기
+                        <span className="material-symbols-outlined ml-2 text-lg">
+                          arrow_forward
+                        </span>
+                      </>
+                    )}
                   </button>
                 </form>
               </div>

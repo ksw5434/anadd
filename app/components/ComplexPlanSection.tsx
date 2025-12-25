@@ -50,16 +50,16 @@ export default function ComplexPlanSection() {
           <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary/30 rounded-br-3xl z-0 hidden md:block"></div>
 
           {/* 배치도 이미지 컨테이너 */}
-          <div className="relative z-10 w-full h-[1580px]  p-8 md:p-12 bg-white flex items-center justify-center ">
+          <div className="relative z-10 w-full h-auto min-h-[400px] md:h-[1580px] p-4 md:p-12 bg-white flex items-center justify-center ">
             {/* 실제 배치도 이미지 */}
-
-            <div className="w-full h-full relative rounded-xl overflow-hidden ">
+            <div className="w-full h-auto md:h-full relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto">
               <Image
                 src="https://www.anadd.co.kr/sub/complex.jpg"
                 alt="어나드범어 단지 배치도"
                 fill
                 className="object-contain w-full h-full"
                 priority
+                sizes="(max-width: 768px) 100vw, 1200px"
               />
             </div>
           </div>
