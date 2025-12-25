@@ -41,7 +41,10 @@ export default function PremiumLifeSection() {
   ];
 
   return (
-    <div id="premium-life" className="relative flex min-h-screen flex-col w-full bg-background-dark">
+    <div
+      id="premium-life"
+      className="relative flex min-h-screen flex-col w-full bg-background-dark"
+    >
       {/* 헤더 섹션 */}
       <header className="relative w-full pt-20 pb-12 md:pt-32 md:pb-20 px-6 flex flex-col items-center justify-center text-center z-10">
         <div className="max-w-4xl mx-auto space-y-4 animate-fade-in-up">
@@ -63,7 +66,8 @@ export default function PremiumLifeSection() {
           {/* 서브타이틀 */}
           <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto font-normal leading-relaxed pt-4">
             범어의 중심에서 만나는 하이엔드 라이프스타일.
-            <br className="md:hidden" /> 당신의 삶을 완벽하게 채워줄 네 가지 프리미엄을 확인하세요.
+            <br className="md:hidden" /> 당신의 삶을 완벽하게 채워줄 네 가지
+            프리미엄을 확인하세요.
           </p>
         </div>
       </header>
@@ -109,7 +113,9 @@ export default function PremiumLifeSection() {
                   {/* Read More 링크 (호버 시 나타남) */}
                   <div className="pt-4 flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
                     <span>Read More</span>
-                    <span className="material-symbols-outlined text-lg">arrow_forward</span>
+                    <span className="material-symbols-outlined text-lg">
+                      arrow_forward
+                    </span>
                   </div>
                 </div>
               </div>
@@ -120,4 +126,3 @@ export default function PremiumLifeSection() {
     </div>
   );
 }
-

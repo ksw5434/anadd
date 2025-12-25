@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function HeroHeaderSection() {
   return (
     <header className="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
@@ -15,16 +17,24 @@ export default function HeroHeaderSection() {
       <div className="absolute w-full h-full inset-0 bg-background-dark/80 bg-gradient-to-t from-background-dark to-transparent" />
 
       {/* 콘텐츠 */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-12">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-6">
         {/* PREMIUM RESIDENTIAL 배지 */}
         <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold tracking-wider mb-4 uppercase">
           Premium Residential
         </span>
-
+        {/* 로고 이미지 */}
+        <div className="mb-6 flex justify-center">
+          <Image
+            src="/land_logo.png"
+            alt="어나드범어 로고"
+            width={120}
+            height={50}
+            className="object-contain"
+            priority
+          />
+        </div>
         {/* 메인 제목 */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-          Anadeu Beomeo
-        </h2>
+        <h2 className="sr-only">어나드범어</h2>
 
         {/* 서브타이틀 */}
         <p className="text-neutral-300 text-lg font-light max-w-2xl mx-auto">

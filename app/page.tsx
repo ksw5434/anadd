@@ -6,6 +6,7 @@ import HeroSection from "./components/HeroSection";
 import HeroHeaderSection from "./components/HeroHeaderSection";
 import ProjectOverviewSection from "./components/ProjectOverviewSection";
 import CTASection from "./components/CTASection";
+import VideoSwiperSection from "./components/VideoSwiperSection";
 import PremiumLifeSection from "./components/PremiumLifeSection";
 import ContactCTASection from "./components/ContactCTASection";
 import PremiumUnitPlanSection from "./components/PremiumUnitPlanSection";
@@ -106,6 +107,7 @@ export default function Home() {
           <HeroHeaderSection />
           <ProjectOverviewSection />
           <CTASection />
+          {/* <VideoSwiperSection /> */}
           <PremiumLifeSection />
           <ContactCTASection />
           <PremiumUnitPlanSection />

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import InterestRegistrationButton from "./InterestRegistrationButton";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -148,12 +149,7 @@ export default function Navigation() {
                 오시는 길
               </button>
             </div>
-            <button className="flex items-center gap-2 bg-primary hover:bg-[#d9a60e] text-background-dark px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">
-              <span>관심고객등록</span>
-              <span className="material-symbols-outlined text-sm">
-                arrow_forward
-              </span>
-            </button>
+            <InterestRegistrationButton />
           </div>
 
           {/* 모바일 메뉴 버튼 */}
@@ -186,12 +182,7 @@ export default function Navigation() {
               <button className="text-white/80 hover:text-primary text-sm font-semibold transition-colors text-left">
                 오시는 길
               </button>
-              <button className="flex items-center gap-2 bg-primary hover:bg-[#d9a60e] text-background-dark px-6 py-2.5 rounded-lg text-sm font-bold transition-all mt-2">
-                <span>관심고객등록</span>
-                <span className="material-symbols-outlined text-sm">
-                  arrow_forward
-                </span>
-              </button>
+              <InterestRegistrationButton className="mt-2" />
             </div>
           </div>
         )}

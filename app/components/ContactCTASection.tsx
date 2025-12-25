@@ -16,7 +16,8 @@ export default function ContactCTASection() {
             </h2>
             <p className="text-gray-400 text-base md:text-lg max-w-xl">
               어나드범어의 프리미엄 가치를 모델하우스에서 직접 확인해보세요.
-              <br className="hidden md:inline" /> 전문 상담사가 상세한 분양 정보를 안내해 드립니다.
+              <br className="hidden md:inline" /> 전문 상담사가 상세한 분양
+              정보를 안내해 드립니다.
             </p>
           </div>
 
@@ -36,4 +37,3 @@ export default function ContactCTASection() {
     </section>
   );
 }
-
