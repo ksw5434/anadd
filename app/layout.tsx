@@ -119,6 +119,10 @@ export default function RootLayout({
           name="naver-site-verification"
           content="0a1ff8b14db2b099d06ba63eb0057daf833fa6ed"
         />
+        <meta
+          name="naver-site-verification"
+          content="4850c829c9ed8dda6884201e1398a2bb61c27a91"
+        />
 
         {/* Vimeo 도메인 사전 연결 - 비디오 로딩 속도 최적화 */}
         <link rel="preconnect" href="https://player.vimeo.com" />
