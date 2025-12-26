@@ -56,33 +56,40 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  // 메타데이터 베이스 URL 설정 (절대 경로 이미지 URL 생성에 사용)
   metadataBase: new URL("https://anadeubeomeo.com"), // 실제 도메인으로 변경 필요
   alternates: {
     canonical: "/",
   },
+  // 오픈 그래프 메타 태그 - 네이버 검색 및 소셜 미디어 공유 최적화
   openGraph: {
-    type: "website",
-    locale: "ko_KR",
-    url: "https://anadeubeomeo.com", // 실제 도메인으로 변경 필요
-    siteName: "어나드범어",
+    type: "website", // 웹사이트 타입 지정
+    locale: "ko_KR", // 한국어 로케일 설정
+    url: "https://anadeubeomeo.com", // 페이지의 정규화된 URL (실제 도메인으로 변경 필요)
+    siteName: "어나드범어", // 사이트 이름
     title: "어나드범어 | 대구 수성구 범어동 프리미엄 아파트",
     description:
       "대구 수성구 범어동에 위치한 어나드범어 프리미엄 아파트. 범어역 도보 3분, 명문 학군, 하이엔드 커뮤니티 시설을 갖춘 프리미엄 라이프스타일의 시작.",
     images: [
       {
-        url: "/og-image.jpg", // OG 이미지 경로 (추후 추가 필요)
-        width: 1200,
-        height: 630,
-        alt: "어나드범어 프리미엄 아파트",
+        // 오픈 그래프 이미지 설정
+        // 네이버 가이드라인: 150x150 이상, 5KB 이상, 가로:세로 비율 3:1 이하
+        url: "/og-image.jpg", // OG 이미지 경로 (public/og-image.jpg 파일 필요)
+        width: 1200, // 이미지 너비 (150 이상 요구사항 충족)
+        height: 630, // 이미지 높이 (비율 1.9:1로 3:1 요구사항 충족)
+        alt: "어나드범어 프리미엄 아파트", // 이미지 대체 텍스트
+        type: "image/jpeg", // 이미지 타입 명시
       },
     ],
   },
+  // Twitter 카드 메타 태그 - 트위터 공유 최적화
   twitter: {
-    card: "summary_large_image",
+    card: "summary", // 네이버 가이드라인 권장 타입 (summary 또는 summary_large_image)
     title: "어나드범어 | 대구 수성구 범어동 프리미엄 아파트",
     description:
       "대구 수성구 범어동에 위치한 어나드범어 프리미엄 아파트. 범어역 도보 3분, 명문 학군, 하이엔드 커뮤니티 시설을 갖춘 프리미엄 라이프스타일의 시작.",
-    images: ["/og-image.jpg"],
+    images: ["https://anadeubeomeo.com/og-image.jpg"], // 절대 URL 사용 권장
+    // domain: "anadeubeomeo.com", // 사이트 도메인 (선택사항)
   },
   robots: {
     index: true,
