@@ -1,23 +1,40 @@
 import { MetadataRoute } from "next";
 
+/**
+ * 구글 SEO를 위한 사이트맵 생성
+ * Next.js App Router에서 자동으로 /sitemap.xml 경로에 제공됩니다
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://anadeubeomeo.com"; // 실제 도메인으로 변경 필요
+  // 기본 도메인 URL
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://anadeubeomeo.com";
+  
+  // 현재 날짜 (마지막 수정일로 사용)
+  const currentDate = new Date();
 
   return [
     {
+      // 메인 페이지 - 최우선순위
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
+      lastModified: currentDate,
+      changeFrequency: "weekly", // 주간 업데이트 빈도
+      priority: 1.0, // 최고 우선순위
     },
-    // 추가 페이지가 있다면 여기에 추가
-    // {
-    //   url: `${baseUrl}/about`,
-    //   lastModified: new Date(),
-    //   changeFrequency: "monthly",
-    //   priority: 0.8,
-    // },
+    {
+      // 개인정보취급방침 페이지
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: currentDate,
+      changeFrequency: "yearly", // 법적 문서이므로 연간 업데이트 빈도
+      priority: 0.3, // 낮은 우선순위
+    },
+    {
+      // 이용약관 페이지
+      url: `${baseUrl}/terms-of-service`,
+      lastModified: currentDate,
+      changeFrequency: "yearly", // 법적 문서이므로 연간 업데이트 빈도
+      priority: 0.3, // 낮은 우선순위
+    },
   ];
 }
+
 
 
