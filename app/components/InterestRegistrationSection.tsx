@@ -261,7 +261,7 @@ export default function InterestRegistrationSection() {
 
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                    관심고객 등록
+                    잔여호실 상담
                   </h3>
                   <p className="text-slate-500 dark:text-text-gold text-sm">
                     상담을 원하시는 고객님의 정보를 입력해 주세요.

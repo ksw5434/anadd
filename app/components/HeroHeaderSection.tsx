@@ -38,7 +38,7 @@ export default function HeroHeaderSection() {
 
         {/* 서브타이틀 */}
         <p className="text-neutral-300 text-lg font-light max-w-2xl mx-auto">
-          대구 수성구 범어동, 품격의 차이를 만드는 새로운 기준
+          어나드범어, 대구 수성구 범어동에서 품격의 차이를 만드는 새로운 기준
         </p>
       </div>
     </header>

@@ -1,11 +1,18 @@
 "use client";
 
+import { scrollToTarget } from "../utils/scrollTo";
+
 export default function HeroSection() {
   const handleScrollDown = () => {
     window.scrollTo({
       top: window.innerHeight,
       behavior: "smooth",
     });
+  };
+
+  // 관심고객 등록 섹션으로 스크롤 이동
+  const handleInterestRegistrationClick = () => {
+    scrollToTarget("interest-registration");
   };
 
   return (
@@ -47,9 +54,9 @@ export default function HeroSection() {
               </span>
             </div>
             <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              범어의 자부심,
+              어나드범어,
               <br />
-              <span className="text-primary">그 이상의 가치</span>
+              <span className="text-primary">범어의 자부심 그 이상의 가치</span>
             </h1>
             <h2 className="text-white text-lg md:text-xl leading-relaxed max-w-[600px] mt-2">
               대구의 중심에서 누리는 하이엔드 라이프스타일의 시작.
@@ -82,8 +89,11 @@ export default function HeroSection() {
 
           {/* CTA 버튼 */}
           <div className="pt-4">
-            <button className="group flex min-w-[200px] w-fit cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary hover:bg-[#d9a50f] text-background-dark text-base font-bold leading-normal tracking-wide shadow-[0_0_20px_rgba(236,182,19,0.3)] transition-all">
-              <span>청약 안내받기</span>
+            <button
+              onClick={handleInterestRegistrationClick}
+              className="group flex min-w-[200px] w-fit cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary hover:bg-[#d9a50f] text-background-dark text-base font-bold leading-normal tracking-wide shadow-[0_0_20px_rgba(236,182,19,0.3)] transition-all"
+            >
+              <span>잔여호실 상담</span>
               <span className="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">
                 arrow_right_alt
               </span>
