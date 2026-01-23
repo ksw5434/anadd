@@ -18,7 +18,7 @@ export default function HeroSection() {
   return (
     <section className="relative w-full h-screen min-h-[700px] flex flex-col overflow-hidden">
       {/* Vimeo 배경 비디오 */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <iframe
           src="https://player.vimeo.com/video/1131986574?background=1&loop=1&autopause=0&responsive=1"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -34,7 +34,7 @@ export default function HeroSection() {
           title="Hero Background Video"
           loading="eager"
         />
-      </div>
+      </div> */}
 
       {/* 그라데이션 오버레이 - 텍스트 가독성을 위해 */}
       <div className="absolute w-full h-full inset-0 z-[1] bg-gradient-to-b from-background-dark/20 scale-110 via-background-dark/60 to-background-dark/50" />
