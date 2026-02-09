@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { scrollToTarget } from "@/app/utils/scrollTo";
 import InterestRegistrationButton from "./InterestRegistrationButton";
 
@@ -45,7 +46,14 @@ export default function Navigation() {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
           {/* 로고 섹션 */}
-          <div className="flex items-center">
+          <Link 
+            href="/" 
+            className="flex items-center cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "/";
+            }}
+          >
             <img
               src="/logo.png"
               alt="로고"
@@ -53,7 +61,7 @@ export default function Navigation() {
               height={40}
               className="h-auto"
             />
-          </div>
+          </Link>
 
           {/* 데스크톱 메뉴 */}
           <div className="hidden lg:flex flex-1 justify-end items-center gap-10">
