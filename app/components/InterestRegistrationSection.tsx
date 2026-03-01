@@ -57,7 +57,7 @@ export default function InterestRegistrationSection() {
   ];
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
@@ -120,7 +120,7 @@ export default function InterestRegistrationSection() {
       if (response.status === 200) {
         // 성공 메시지
         alert(
-          "관심고객 등록이 완료되었습니다.\n담당자가 확인 후 신속하게 연락드리겠습니다."
+          "관심고객 등록이 완료되었습니다.\n담당자가 확인 후 신속하게 연락드리겠습니다.",
         );
 
         // 폼 초기화
@@ -136,7 +136,7 @@ export default function InterestRegistrationSection() {
     } catch (error) {
       console.error("이메일 발송 오류:", error);
       alert(
-        "등록 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.\n문제가 계속되면 전화로 문의해주세요: 053-792-7777"
+        "등록 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.\n문제가 계속되면 전화로 문의해주세요: 010-2735-5664",
       );
     } finally {
       setIsSubmitting(false);
@@ -152,7 +152,7 @@ export default function InterestRegistrationSection() {
       <div className="absolute inset-0 pointer-events-none opacity-5 dark:opacity-10 z-0 overflow-hidden">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary blur-[120px]"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-primary/40 blur-[100px]"></div>
-        <div className="w-full h-full bg-[linear-gradient(rgba(236,182,19,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(236,182,19,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="w-full h-full bg-[linear-gradient(rgba(255,234,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,234,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       </div>
 
       <div className="layout-container relative z-10 flex h-full grow flex-col">
@@ -184,7 +184,7 @@ export default function InterestRegistrationSection() {
                       24시간 분양 문의
                     </p>
                     <h1 className="text-3xl lg:text-4xl font-bold text-primary tracking-[-0.02em]">
-                      053-792-7777
+                      010-2735-5664
                     </h1>
                   </div>
                   <a
@@ -404,7 +404,7 @@ export default function InterestRegistrationSection() {
 
                   {/* 제출 버튼 */}
                   <button
-                    className="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-background-dark bg-primary hover:bg-[#d9a60e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform hover:-translate-y-0.5 active:translate-y-0 mt-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-background-dark bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all transform hover:-translate-y-0.5 active:translate-y-0 mt-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     type="submit"
                     disabled={isSubmitting}
                   >

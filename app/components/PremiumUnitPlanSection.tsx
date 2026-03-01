@@ -16,72 +16,72 @@ export default function PremiumUnitPlanSection() {
     {
       id: "136",
       label: "136",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit01.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit01.jpg",
     },
     {
       id: "139",
       label: "139",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit02.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit02.jpg",
     },
     {
       id: "153A",
       label: "153A",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit03.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit03.jpg",
     },
     {
       id: "153B",
       label: "153B",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit04.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit04.jpg",
     },
     {
       id: "153C",
       label: "153C",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit05.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit05.jpg",
     },
     {
       id: "156A1",
       label: "156A1",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit06.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit06.jpg",
     },
     {
       id: "156A2",
       label: "156A2",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit07.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit07.jpg",
     },
     {
       id: "156B",
       label: "156B",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit08.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit08.jpg",
     },
     {
       id: "156C",
       label: "156C",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit09.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit09.jpg",
     },
     {
       id: "160",
       label: "160",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit10.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit10.jpg",
     },
     {
       id: "168",
       label: "168",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit11.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit11.jpg",
     },
     {
       id: "170",
       label: "170",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit12.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit12.jpg",
     },
     {
       id: "226P",
       label: "226P",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit13.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit13.jpg",
     },
     {
       id: "244P",
       label: "244P",
-      floorPlanImage: "https://www.anadd.co.kr/sub/unit14.jpg",
+      floorPlanImage: "https://www.anadd.co.kr/apt/sub/unit14.jpg",
     },
   ];
 

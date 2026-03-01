@@ -142,7 +142,7 @@ export default function LocationEnvironmentSection() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer z-10">
                 <div className="relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <div className="relative inline-flex items-center justify-center p-3 rounded-full bg-primary text-background-dark shadow-[0_0_20px_rgba(236,182,19,0.6)]">
+                  <div className="relative inline-flex items-center justify-center p-3 rounded-full bg-primary text-background-dark shadow-[0_0_20px_rgb(255,234,0,0.6)]">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
                     </svg>

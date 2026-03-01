@@ -39,7 +39,7 @@ export default function Home() {
       latitude: "35.8594",
       longitude: "128.6314",
     },
-    telephone: "053-792-7777",
+    telephone: "010-2735-5664",
     url: "https://anadeubeomeo.com",
     sameAs: [],
     amenityFeature: [
@@ -83,7 +83,7 @@ export default function Home() {
     logo: "https://anadeubeomeo.com/land_logo.png",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "053-792-7777",
+      telephone: "010-2735-5664",
       contactType: "분양 문의",
       areaServed: "KR",
       availableLanguage: "Korean",
@@ -104,7 +104,7 @@ export default function Home() {
     name: "어나드범어 분양센터",
     alternateName: "Anadeu Beomeo Sales Center",
     image: "https://anadeubeomeo.com/land_logo.png",
-    telephone: "053-792-7777",
+    telephone: "010-2735-5664",
     address: {
       "@type": "PostalAddress",
       addressLocality: "범어동",
@@ -172,7 +172,7 @@ export default function Home() {
         name: "어나드범어 분양 문의는 어떻게 하나요?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "어나드범어 분양 문의는 053-792-7777로 연락하시거나, 웹사이트의 관심고객 등록 섹션에서 온라인으로 등록하실 수 있습니다.",
+          text: "어나드범어 분양 문의는 010-2735-5664로 연락하시거나, 웹사이트의 관심고객 등록 섹션에서 온라인으로 등록하실 수 있습니다.",
         },
       },
       {

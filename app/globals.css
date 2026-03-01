@@ -10,7 +10,7 @@
   --font-mono: var(--font-geist-mono);
 
   /* 커스텀 컬러 */
-  --color-primary: #ecb613;
+  --color-primary: #ffea00;
   --color-background-light: #f8f8f6;
   --color-background-dark: #221d10;
   --color-surface-dark: #2d281a;
@@ -56,7 +56,6 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 }
-
 
 /* 스크롤 다운 애니메이션 */
 @keyframes bounce {

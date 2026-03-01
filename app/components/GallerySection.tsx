@@ -166,7 +166,7 @@ export default function GallerySection() {
               onClick={() => setActiveFilter(filter)}
               className={`group relative flex items-center justify-center gap-x-2 rounded-full px-6 py-2.5 transition-all duration-300 ${
                 activeFilter === filter
-                  ? "bg-primary text-background-dark shadow-[0_0_15px_rgba(236,182,19,0.3)]"
+                  ? "bg-primary text-background-dark shadow-[0_0_15px_rgb(255,234,0,0.3)]"
                   : "bg-white dark:bg-surface-dark text-slate-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#3d3420] border border-slate-200 dark:border-border-dark"
               }`}
             >

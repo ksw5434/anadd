@@ -16,7 +16,7 @@ export default function CTASection() {
         <div className="flex flex-wrap justify-center gap-4">
           <InterestRegistrationButton />
           <button className="bg-white dark:bg-white/5 hover:bg-neutral-50 dark:hover:bg-white/10 text-neutral-900 dark:text-white border border-neutral-200 dark:border-white/10 font-bold py-3 px-8 rounded-lg transition-all">
-            문의전화 053-792-7777
+            문의전화 010-2735-5664
           </button>
         </div>
       </div>

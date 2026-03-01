@@ -185,7 +185,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <p>성명: 김수환</p>
                 <p>직책: 대표</p>
-                <p>연락처: 053-792-7777, suhwan0219@gmail.com</p>
+                <p>연락처: 010-2735-5664, suhwan0219@gmail.com</p>
               </div>
             </section>
 

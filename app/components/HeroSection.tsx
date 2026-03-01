@@ -91,7 +91,7 @@ export default function HeroSection() {
           <div className="pt-4">
             <button
               onClick={handleInterestRegistrationClick}
-              className="group flex min-w-[200px] w-fit cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary hover:bg-[#d9a50f] text-background-dark text-base font-bold leading-normal tracking-wide shadow-[0_0_20px_rgba(236,182,19,0.3)] transition-all"
+              className="group flex min-w-[200px] w-fit cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary hover:bg-primary/90 text-background-dark text-base font-bold leading-normal tracking-wide shadow-[0_0_20px_rgb(255,234,0,0.3)] transition-all"
             >
               <span>잔여호실 상담</span>
               <span className="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">

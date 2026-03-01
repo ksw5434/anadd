@@ -23,7 +23,7 @@ export default function ContactCTASection() {
 
           {/* 버튼 영역 */}
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <button className="flex items-center justify-center gap-2 h-14 px-8 rounded-lg bg-primary hover:bg-primary/90 text-background-dark font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(236,182,19,0.3)]">
+            <button className="flex items-center justify-center gap-2 h-14 px-8 rounded-lg bg-primary hover:bg-primary/90 text-background-dark font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgb(255,234,0,0.3)]">
               <span className="material-symbols-outlined">calendar_month</span>
               <span>방문 예약하기</span>
             </button>
