@@ -54,7 +54,7 @@ export default function ComplexPlanSection() {
             {/* 실제 배치도 이미지 */}
             <div className="w-full h-auto md:h-full relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto">
               <Image
-                src="https://www.anadd.co.kr/sub/complex.jpg"
+                src="https://www.anadd.co.kr/apt/sub/complex.jpg"
                 alt="어나드범어 단지 배치도"
                 fill
                 className="object-contain w-full h-full"
